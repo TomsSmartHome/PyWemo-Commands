@@ -18,13 +18,27 @@ Then install PyWemo:
 pip3 install pywemo
 ```
 
-OpenSSL is required for connecting to wifi. (Original steps are [from here](https://medium.com/@bonguides25/how-to-download-and-install-openssl-in-windows-10-d69e4ad26146).)
+OpenSSL is required for connecting to wifi.
 
-These steps are Windows-specific. Mac OS and Linux might already have it installed.
+**These steps are Windows-specific.** I don't have Mac OS or Linux, but for those it might already be installed.
+
+Open a Powershell window as Admin, then search for OpenSSL:
 
 ```bash
 winget search openssl
+```
+
+Copy the "FireDaemon.OpenSSL" value from that command for the next step.
+
+Install OpenSSL:
+
+```bash
 winget install --id=FireDaemon.OpenSSL -e
+```
+
+Add OpenSSL to your Env PATH:
+
+```bash
 $Env:PATH += ";C:Program FilesFireDaemon OpenSSL 3bin"
 ```
 
@@ -34,7 +48,7 @@ Verify OpenSSL installation worked with:
 openssl --version
 ```
 
-You might need to close and re-open your shell for some of the above commands to take effect.
+You might need to close and re-open your shell (or just reboot) for some of the above commands to take effect.
 
 ## Connecting device to wifi
 
